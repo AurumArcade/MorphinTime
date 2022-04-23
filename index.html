@@ -64,7 +64,7 @@
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "MorphinTime",
-        productVersion: "1.0",
+        productVersion: "1.1.0",
         showBanner: unityShowBanner,
       };
 
@@ -86,7 +86,7 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        config.devicePixelRatio = 1;
+        //config.devicePixelRatio = 1;
 
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
@@ -103,6 +103,10 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+	  
+	  /// TESTING BLACK SCREEN FIX **************************
+        config['webglContextAttributes'] = {"preserveDrawingBuffer": true}; 
+	  /// ****************************************************
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
