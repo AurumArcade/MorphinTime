@@ -104,9 +104,6 @@
       script.src = loaderUrl;
       script.onload = () => {
 	  
-	  /// TESTING BLACK SCREEN FIX **************************
-        config['webglContextAttributes'] = {"preserveDrawingBuffer": true}; 
-	  /// ****************************************************
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
